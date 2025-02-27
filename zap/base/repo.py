@@ -52,7 +52,7 @@ class Repo:
             self.pull()
             self.add_all()
             self.commit("initial commit from zap")
-            self.runcmd(["git", "push", "-u", "origin", "main"])
+            self.runcmd(["git", "push", "-u", "origin", "main", "-f"])
         def add_all(self):
             self.runcmd(["git", "add", "."])
         def pull(self):
@@ -60,7 +60,7 @@ class Repo:
         def commit(self, msg):
             self.runcmd(["git", "commit", "-m", f"⚡ {msg}"])
         def push(self):
-            self.runcmd(["git", "push", "--all"])
+            self.runcmd(["git", "push", "--all", "--force"])
         def full_save(self, msg):
             self.pull()
             self.add_all()
