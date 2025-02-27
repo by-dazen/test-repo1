@@ -29,6 +29,7 @@ class Repo:
         with (path / ".zap" / "ghm" / "url").open("w") as file:
             file.write(url)
         mkdir(path / ".zap" / "branches")
+        mkdir(path / ".zap" / "branches" / "main")
         mkdir(path / ".zap" / "temp")
     def get_branch_path(self, branch):
         return self.path_zap_branches / branch
@@ -128,6 +129,7 @@ press <ctrl-c> or <ctrl-d> to cancel
         rg = srcobj.cmdreg.register
         try:
             repo = cls.generate(srcobj, getcwd())
+            srcobj.cmdreg.init = True
         except Exception:
             ...
         @rg(init_optional=True)
